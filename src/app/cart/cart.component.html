@@ -1,0 +1,31 @@
+<h3>Cart</h3>
+
+
+
+
+<table class="table table-hover table-dark">
+    <thead>
+      <tr>
+        <th scope="col">Destination</th>
+        <th scope="col">Start</th>
+        <th scope="col">Duration</th>
+        <th scope="col">Price</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr class="cart-item" *ngFor="let item of items">
+
+        <td>{{ item.destination }}</td>
+        <td>{{ item.start}}</td>
+        <td>{{ item.duration}} days</td>
+        <td>{{ item.price}} €</td>
+      </tr>
+      
+    </tbody>
+  </table>
+
+  <p>Sum of all Purchases: {{ this.price }} </p>
+  <p>You get a 20% discount if the sum of your purchases is moren than 20000€</p>
+  <p>New Sum: {{ this.newSum }}</p>
+
