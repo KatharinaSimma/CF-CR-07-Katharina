@@ -26,7 +26,7 @@ export class CartService {
     }
 
     displayNewCartSum(){
-      if (this.displayCartSum() > 20000){
+      if (this.displayCartSum() >= 20000){
         var newSum = this.displayCartSum()*0.8
         console.log(newSum)
       }
@@ -36,8 +36,6 @@ export class CartService {
     getItems() {
       return this.items;
     }
-
-
    
     clearCart() {
       this.items = [];

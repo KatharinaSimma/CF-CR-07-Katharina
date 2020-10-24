@@ -1,28 +1,37 @@
+<br>
+<h1 class="text-light">Journey Details</h1>
+<br>
+
+
 <div class="container"> 
-    <div class="row album py-5 bg-light d-flex">
+    <div class="row album py-5 bg-transparent text-light d-flex">
         
         <div *ngIf="travelItem">
 
-            <div class="col-4 card mb-3" style="max-width: 100%">
+            <div class="col-4 card mb-3 bg-transparent" style="max-width: 100%">
                 <div class="row no-gutters">
-                    <div class="col-md-6">
-                        <img src="assets/img/iceland-2111811_1920.jpg" class="card-img" alt="...">
+                    <div class="col-md-12">
+                        <img src='{{ travelItem.img }}' class="card-img" alt="...">
                     </div>
 
-                    <div class="col-md-6">
-                        <div class="card-body">
+                    <div class="col-md-12">
+                        <div class="card-body bg-dark">
                             <h5 class="card-title"> {{travelItem.destination}}</h5>
                             <p class="card-text"> {{travelItem.description}}</p>
                             <span class="card-text">
                                 <ul>
                                     <li>Start: {{ travelItem.start }} </li>
                                     <li>Duration: {{ travelItem.duration }} days</li>
-                                    <li>Price: {{ travelItem.price }}€ </li>
+                                    <li>Price: {{ travelItem.price | currency:'€ ' }} </li>
                                 </ul>
                             </span>
                             <a>
-                            <button  (click)="addToCart(travelItem)" type="button" class="btn btn-dark">Add to Cart</button>
+                                <button (click)="addToCart(travelItem)" type="button" class="btn btn-secondary mr-3 ">Add to Cart</button>
                             </a>
+                            <a>
+                                <button routerLink="/cart" type="button" class="btn btn-secondary">Go to Cart</button>
+                            </a>
+                            
                         </div>
                     </div>
                 </div>

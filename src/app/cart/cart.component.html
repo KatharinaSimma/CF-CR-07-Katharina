@@ -1,31 +1,57 @@
-<h3>Cart</h3>
+<br>
+<h1 class="text-light">Cart</h1>
+<span class="badge badge-secondary p-2 mb-4">You get a 20% discount if the sum of your purchases is moren than 20,000.00 €!</span>
+<br>
 
 
 
 
-<table class="table table-hover table-dark">
-    <thead>
-      <tr>
-        <th scope="col">Destination</th>
-        <th scope="col">Start</th>
-        <th scope="col">Duration</th>
-        <th scope="col">Price</th>
-      </tr>
-    </thead>
-    <tbody>
+<div class="container">
+  <ng-template [ngIf]="items.length>0" [ngIfElse]="none">
+          
+    <table  class="table table-hover table-dark">
+      <thead>
+        <tr>
+          <th scope="col">Destination</th>
+          <th scope="col">Start</th>
+          <th scope="col">Duration</th>
+          <th scope="col">Price</th>
+        </tr>
+      </thead>
+      <tbody>
+  
+        <tr class="cart-item" *ngFor="let item of items">
+  
+          <td> {{ item.destination }} </td>
+          <td> {{ item.start }} </td>
+          <td> {{ item.duration }} days</td>
+          <td> {{ item.price | currency:'€ '}} €</td>
+        </tr>
+        
+      </tbody>
+    </table>
 
-      <tr class="cart-item" *ngFor="let item of items">
 
-        <td>{{ item.destination }}</td>
-        <td>{{ item.start}}</td>
-        <td>{{ item.duration}} days</td>
-        <td>{{ item.price}} €</td>
-      </tr>
-      
-    </tbody>
-  </table>
+  </ng-template>
+  <ng-template #none>
+          <span class="text-danger">Your shopping cart is empty! 
+            <button routerLink="/travel" type="button" class="btn button-transparent text-light border-secondary">Add a journey!</button>
+          </span>
+  </ng-template>
+</div>
 
-  <p>Sum of all Purchases: {{ this.price }} </p>
-  <p>You get a 20% discount if the sum of your purchases is moren than 20000€</p>
-  <p>New Sum: {{ this.newSum }}</p>
+
+
+
+  <p class="text-light">Sum of all Purchases: {{ this.price | currency:'€ '}} </p>
+
+  <p class="text-light" *ngIf="this.newSum"> Final price, 20% discount included: {{ this.newSum | currency:'€ ' }}</p>
+
+  <div class="card bg-dark text-white">
+  <img src="assets/img/aurora-1190254_1920.jpg" class="card-img" alt="...">
+  <div class="card-img-overlay text-center">
+    <h3 class="card-title">Thank you for travelling with Aurora Voyage!   </h3>
+    <h4>Bon Voyage!</h4>
+  </div>
+</div>
 

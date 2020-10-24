@@ -9,7 +9,7 @@ export class NavbarComponent implements OnInit {
   projectName: string;
 
   constructor() { 
-    this.projectName = "Tante Kathi's Reiseagentur"
+    this.projectName = "Aurora Voyage"
   }
 
   ngOnInit(): void {
